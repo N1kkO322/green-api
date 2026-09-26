@@ -2,7 +2,7 @@ import type { Credentials } from '../types/chat'
 
 const API_BASE = import.meta.env.VITE_API_BASE
 
-console.log('API_BASE:', API_BASE)
+// console.log('API_BASE:', API_BASE)
 
 export async function sendMessage(
   creds: Credentials,
@@ -21,12 +21,24 @@ export async function sendMessage(
   return res.json()
 }
 
+// export async function receiveNotification(creds: Credentials) {
+//   const res = await fetch(
+//     `${API_BASE}/waInstance${creds.idInstance}/receiveNotification/${creds.apiToken}`,
+//   )
+//   if (!res.ok) throw new Error(`Receive failed: ${res.status}`)
+//   return res.json()
+// }
+
 export async function receiveNotification(creds: Credentials) {
   const res = await fetch(
     `${API_BASE}/waInstance${creds.idInstance}/receiveNotification/${creds.apiToken}`,
   )
   if (!res.ok) throw new Error(`Receive failed: ${res.status}`)
-  return res.json()
+  const text = await res.text()
+  if (!text.trim()) {
+    return null
+  }
+  return JSON.parse(text)
 }
 
 export async function deleteNotification(

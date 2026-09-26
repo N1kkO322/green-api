@@ -25,7 +25,7 @@ export function Sidebar({ chatId, onSetChatId, onLogout }: Props) {
   return (
     <aside className="w-80 bg-[#242625] border-r border-[#222222] p-4 flex flex-col">
       <div className="flex flex-col justify-between gap-4">
-        <h2 className="text-lg font-semibold">Чаты</h2>
+        <h2 className="text-lg font-semibold">Поиск</h2>
 
         <label className="text-xs">Введите номер получателя (без +)</label>
         <div className="flex gap-2 mb-4">

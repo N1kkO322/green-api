@@ -19,7 +19,7 @@ function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[url(./../public/background.jpg)]">
+    <div className="min-h-screen flex items-center justify-center bg-[url('/images/background.jpg')]">
       <LoginForm onSubmit={handleSubmit} />
     </div>
   )
